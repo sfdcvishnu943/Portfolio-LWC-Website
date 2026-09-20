@@ -1,0 +1,119 @@
+<template>
+  <div class="projects-section">
+    <div class="section-header">
+      <div class="section-title-row">
+        <lightning-icon icon-name="utility:apps" size="medium" class="section-icon"></lightning-icon>
+        <h2 class="section-title">Projects</h2>
+      </div>
+      <div class="section-line"></div>
+    </div>
+
+    <template if:true={isLoading}>
+      <div class="loading-state">Loading projects...</div>
+    </template>
+
+    <template if:false={isLoading}>
+      <template if:true={hasCompanyProjects}>
+        <h3 class="subsection-title">
+          <lightning-icon icon-name="utility:company" size="x-small" class="subsection-icon"></lightning-icon>
+          Company Projects
+        </h3>
+        <div class="projects-grid">
+          <template for:each={companyProjects} for:item="project">
+            <div key={project.Id} class="project-card">
+              <template if:true={project.Image__c}>
+                <div class="project-image">
+                  <img src={project.Image__c} alt={project.Name} />
+                </div>
+              </template>
+
+              <div class="project-content">
+                <h3 class="project-title">{project.Name}</h3>
+
+                <template if:true={project.dateRange}>
+                  <p class="project-date-range">{project.dateRange}</p>
+                </template>
+
+                <template if:true={project.techArray}>
+                  <div class="tech-stack">
+                    <template for:each={project.techArray} for:item="tech">
+                      <span key={tech} class="tech-badge">{tech}</span>
+                    </template>
+                  </div>
+                </template>
+
+                <p class="project-description">{project.Description__c}</p>
+
+                <div class="project-links">
+                  <template if:true={project.Project_URL__c}>
+                    <a href={project.Project_URL__c} target="_blank" rel="noopener noreferrer" class="link-btn">
+                      View Project
+                    </a>
+                  </template>
+                  <template if:true={project.Github_URL__c}>
+                    <a href={project.Github_URL__c} target="_blank" rel="noopener noreferrer" class="link-btn github-btn">
+                      GitHub
+                    </a>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </template>
+
+      <template if:true={hasLearningProjects}>
+        <h3 class="subsection-title">
+          <lightning-icon icon-name="utility:education" size="x-small" class="subsection-icon"></lightning-icon>
+          Self Learning Projects
+        </h3>
+        <div class="projects-grid">
+          <template for:each={learningProjects} for:item="project">
+            <div key={project.Id} class="project-card">
+              <template if:true={project.Image__c}>
+                <div class="project-image">
+                  <img src={project.Image__c} alt={project.Name} />
+                </div>
+              </template>
+
+              <div class="project-content">
+                <h3 class="project-title">{project.Name}</h3>
+
+                <template if:true={project.dateRange}>
+                  <p class="project-date-range">{project.dateRange}</p>
+                </template>
+
+                <template if:true={project.techArray}>
+                  <div class="tech-stack">
+                    <template for:each={project.techArray} for:item="tech">
+                      <span key={tech} class="tech-badge">{tech}</span>
+                    </template>
+                  </div>
+                </template>
+
+                <p class="project-description">{project.Description__c}</p>
+
+                <div class="project-links">
+                  <template if:true={project.Project_URL__c}>
+                    <a href={project.Project_URL__c} target="_blank" rel="noopener noreferrer" class="link-btn">
+                      View Project
+                    </a>
+                  </template>
+                  <template if:true={project.Github_URL__c}>
+                    <a href={project.Github_URL__c} target="_blank" rel="noopener noreferrer" class="link-btn github-btn">
+                      GitHub
+                    </a>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </template>
+    </template>
+
+    <template if:true={hasError}>
+      <div class="error-message">Unable to load projects.</div>
+    </template>
+  </div>
+</template>

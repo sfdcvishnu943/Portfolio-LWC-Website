@@ -1,0 +1,54 @@
+<template>
+  <div class="portfolio-wrapper">
+    <c-portfolio-hero></c-portfolio-hero>
+
+    <!-- Tab Navigation -->
+    <div class="tab-navigation-wrapper">
+      <div class="tab-navigation">
+        <template for:each={tabs} for:item="tab">
+          <template if:true={tab.isActive}>
+            <button
+              key={tab.id}
+              data-tab={tab.id}
+              onclick={handleTabClick}
+              class="tab-button active"
+              title={tab.label}>
+              <lightning-icon icon-name={tab.icon} size="x-small" class="tab-icon"></lightning-icon>
+              <span class="tab-label">{tab.label}</span>
+            </button>
+          </template>
+          <template if:false={tab.isActive}>
+            <button
+              key={tab.id}
+              data-tab={tab.id}
+              onclick={handleTabClick}
+              class="tab-button"
+              title={tab.label}>
+              <lightning-icon icon-name={tab.icon} size="x-small" class="tab-icon"></lightning-icon>
+              <span class="tab-label">{tab.label}</span>
+            </button>
+          </template>
+        </template>
+      </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="tab-content-wrapper">
+      <template if:true={showSkills}>
+        <c-portfolio-skills></c-portfolio-skills>
+      </template>
+      <template if:true={showExperience}>
+        <c-portfolio-experience></c-portfolio-experience>
+      </template>
+      <template if:true={showProjects}>
+        <c-portfolio-projects></c-portfolio-projects>
+      </template>
+      <template if:true={showEducation}>
+        <c-portfolio-education></c-portfolio-education>
+      </template>
+      <template if:true={showContact}>
+        <c-portfolio-contact-details></c-portfolio-contact-details>
+      </template>
+    </div>
+  </div>
+</template>

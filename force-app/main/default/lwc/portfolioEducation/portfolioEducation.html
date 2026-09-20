@@ -1,0 +1,38 @@
+<template>
+  <div class="education-section">
+    <div class="section-header">
+      <div class="section-title-row">
+        <lightning-icon icon-name="utility:education" size="medium" class="section-icon"></lightning-icon>
+        <h2 class="section-title">Education</h2>
+      </div>
+      <div class="section-line"></div>
+    </div>
+
+    <template if:true={isLoading}>
+      <div class="loading-state">Loading education details...</div>
+    </template>
+
+    <template if:false={isLoading}>
+      <div class="education-list">
+        <template for:each={education} for:item="edu">
+          <div key={edu.Id} class="education-item">
+            <div class="education-marker">
+              <lightning-icon icon-name="utility:book" size="small"></lightning-icon>
+            </div>
+            <div class="education-content">
+              <h3 class="institution-name">{edu.Name}</h3>
+              <template if:true={edu.Degree__c}>
+                <p class="degree">{edu.Degree__c}</p>
+              </template>
+              <p class="date-range">{getDateRange(edu.Start_Date__c, edu.End_Date__c)}</p>
+            </div>
+          </div>
+        </template>
+      </div>
+    </template>
+
+    <template if:true={hasError}>
+      <div class="error-message">Unable to load education details.</div>
+    </template>
+  </div>
+</template>

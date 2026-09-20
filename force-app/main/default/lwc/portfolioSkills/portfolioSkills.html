@@ -1,0 +1,24 @@
+<template>
+  <section class="skills-section">
+    <div class="section-header">
+      <lightning-icon icon-name="utility:favorite" size="medium" class="section-icon"></lightning-icon>
+      <h2 class="section-title">Skills & Expertise</h2>
+    </div>
+    <div class="skills-grid">
+      <template for:each={skills} for:item="skill">
+        <div key={skill.Id} class="skill-card">
+          <h3 class="skill-name">{skill.Name}</h3>
+          <div class="slds-badge slds-badge--brand">
+            {skill.Category__c}
+          </div>
+          <div class="proficiency-section">
+            <div class="proficiency-bar">
+              <div class="proficiency-fill" data-width={skill.Proficiency__c}></div>
+            </div>
+            <span class="proficiency-text">{skill.Proficiency__c}%</span>
+          </div>
+        </div>
+      </template>
+    </div>
+  </section>
+</template>

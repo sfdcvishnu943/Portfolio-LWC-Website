@@ -1,0 +1,44 @@
+<template>
+  <section class="experience-section">
+    <div class="section-header">
+      <div class="section-title-row">
+        <lightning-icon icon-name="utility:briefcase" size="medium" class="section-icon"></lightning-icon>
+        <h2 class="section-title">Professional Experience</h2>
+      </div>
+      <div class="section-line"></div>
+    </div>
+
+    <template if:true={loading}>
+      <div class="slds-align_absolute-center slds-p-vertical_large">
+        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+      </div>
+    </template>
+
+    <template if:true={error}>
+      <div class="error-message">Unable to load work experience.</div>
+    </template>
+
+    <template if:true={experiences}>
+      <div class="timeline">
+        <template for:each={experiences} for:item="exp">
+          <div key={exp.Id} class="timeline-item">
+            <div class="timeline-marker">
+              <lightning-icon icon-name="utility:company" size="x-small" variant="inverse"></lightning-icon>
+            </div>
+            <div class="timeline-content">
+              <div class="experience-header">
+                <h3 class="company-name">{exp.Name}</h3>
+                <span class="job-title">{exp.Job_Title__c}</span>
+              </div>
+              <p class="date-range">
+                <lightning-icon icon-name="utility:date_input" size="xx-small" class="date-icon"></lightning-icon>
+                {getDateRange(exp)}
+              </p>
+              <p class="description">{exp.Description__c}</p>
+            </div>
+          </div>
+        </template>
+      </div>
+    </template>
+  </section>
+</template>

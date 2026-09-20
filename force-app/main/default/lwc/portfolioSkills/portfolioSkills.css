@@ -1,0 +1,118 @@
+.skills-section {
+  padding: 60px 20px;
+  background: #f8f9fa;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.section-icon {
+  --slds-c-icon-color-foreground: #3b82f6;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.section-header::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  margin: 15px auto 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.skill-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.15);
+  transform: translateY(-5px);
+}
+
+.skill-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  color: #1a1a1a;
+}
+
+.slds-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.slds-badge--inverse {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.slds-badge--brand {
+  background: #eff6ff;
+  color: #1e40af;
+}
+
+.slds-badge--success {
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.slds-badge--warning {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.proficiency-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.proficiency-bar {
+  flex: 1;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.proficiency-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  transition: width 0.3s ease;
+}
+
+.proficiency-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #3b82f6;
+  min-width: 45px;
+}

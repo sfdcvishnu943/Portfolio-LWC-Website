@@ -1,0 +1,108 @@
+<template>
+  <section class="contact-form-section slds-card slds-m-bottom_large">
+    <div class="slds-card__header slds-grid">
+      <header class="slds-card__header-title">
+        <h2 class="slds-text-heading_medium">Get In Touch</h2>
+      </header>
+    </div>
+
+    <div class="slds-card__body">
+      <template if:true={submitted}>
+        <div
+          class="slds-alert slds-alert--success slds-m-bottom_large"
+          role="status"
+        >
+          <div class="slds-alert__content">
+            <h2 class="slds-text-heading_small">Thank you!</h2>
+            <p>
+              Your message has been sent successfully. I'll get back to you
+              soon.
+            </p>
+          </div>
+        </div>
+      </template>
+
+      <template if:true={errorMessage}>
+        <div
+          class="slds-alert slds-alert--error slds-m-bottom_large"
+          role="alert"
+        >
+          <p>{errorMessage}</p>
+        </div>
+      </template>
+
+      <form class="contact-form" onsubmit={handleSubmit}>
+        <div class="slds-form-element slds-m-bottom_medium">
+          <label class="slds-form-element__label" for="name-input">
+            <span class="slds-required">*</span>
+            Name
+          </label>
+          <div class="slds-form-element__control">
+            <input
+              id="name-input"
+              class="slds-input"
+              type="text"
+              placeholder="Your name"
+              value={name}
+              onchange={handleNameChange}
+              disabled={loading}
+            />
+          </div>
+        </div>
+
+        <div class="slds-form-element slds-m-bottom_medium">
+          <label class="slds-form-element__label" for="email-input">
+            <span class="slds-required">*</span>
+            Email
+          </label>
+          <div class="slds-form-element__control">
+            <input
+              id="email-input"
+              class="slds-input"
+              type="email"
+              placeholder="your.email@example.com"
+              value={email}
+              onchange={handleEmailChange}
+              disabled={loading}
+            />
+          </div>
+        </div>
+
+        <div class="slds-form-element slds-m-bottom_large">
+          <label class="slds-form-element__label" for="message-input">
+            <span class="slds-required">*</span>
+            Message
+          </label>
+          <div class="slds-form-element__control">
+            <textarea
+              id="message-input"
+              class="slds-textarea"
+              placeholder="Your message..."
+              value={message}
+              onchange={handleMessageChange}
+              disabled={loading}
+              rows="6"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button
+            type="submit"
+            class="slds-button slds-button--brand"
+            disabled={loading}
+          >
+            <template if:true={loading}>
+              <lightning-spinner
+                alternative-text="Sending"
+                size="small"
+              ></lightning-spinner>
+              Sending...
+            </template>
+            <template if:false={loading}> Send Message </template>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</template>

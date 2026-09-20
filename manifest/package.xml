@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>PF_PortfolioController</members>
+        <members>PF_PortfolioControllerTest</members>
+        <members>PF_ContactFormController</members>
+        <members>PF_ContactFormControllerTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>portfolioSite</members>
+        <members>portfolioHero</members>
+        <members>portfolioSkills</members>
+        <members>portfolioExperience</members>
+        <members>portfolioProjects</members>
+        <members>portfolioEducation</members>
+        <members>portfolioContactDetails</members>
+        <members>portfolioContactForm</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>Skill__c</members>
+        <members>Work_Experience__c</members>
+        <members>Project__c</members>
+        <members>Education__c</members>
+        <members>Contact_Submission__c</members>
+        <members>Portfolio_Profile__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Skill__c-Skill Layout</members>
+        <members>Work_Experience__c-Work Experience Layout</members>
+        <members>Project__c-Project Layout</members>
+        <members>Education__c-Education Layout</members>
+        <members>Contact_Submission__c-Contact Submission Layout</members>
+        <members>Portfolio_Profile__c-Portfolio Profile Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Skill__c</members>
+        <members>Work_Experience__c</members>
+        <members>Project__c</members>
+        <members>Education__c</members>
+        <members>Contact_Submission__c</members>
+        <members>Portfolio_Profile__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>Admin</members>
+        <members>Resume_Based_Website_Profile</members>
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>PF_Portfolio_Guest_Access</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>PortfolioProfilePhoto</members>
+        <name>StaticResource</name>
+    </types>
+    <types>
+        <members>Portfolio_File_Force</members>
+        <name>CspTrustedSite</name>
+    </types>
+    <version>66.0</version>
+</Package>
